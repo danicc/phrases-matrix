@@ -28,6 +28,7 @@ export function PhraseForm({ onSubmit }: Props) {
               onChange={(e) => {
                 setMessage(e.target.value);
               }}
+              required
             />
             <Button type="submit" className="bg-primary">
               Add

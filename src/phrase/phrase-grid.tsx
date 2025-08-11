@@ -18,7 +18,7 @@ function PhraseGrid({ phrases, onDeletePhrase }: Props) {
               <Button
                 variant="outline"
                 size="icon"
-                className="border-destructive"
+                className="bg-foreground"
                 onClick={() => onDeletePhrase(phrase.id)}
               >
                 🗑️
