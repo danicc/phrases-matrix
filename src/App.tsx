@@ -1,8 +1,10 @@
+import { PhraseView } from "./phrase";
+
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <main className="h-[100dvh] flex flex-col items-center">
+      <PhraseView />
+    </main>
   );
 }
 
