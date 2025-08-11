@@ -18,20 +18,22 @@ export function PhraseForm({ onSubmit }: Props) {
     <section>
       <form onSubmit={handleAddNewPhrase} className="flex flex-row gap-2">
         <fieldset>
-          <label htmlFor="phrase" className="hidden">
-            Phrase:
-          </label>
-          <Input
-            id="phrase"
-            name="phrase"
-            placeholder="Add new phrase"
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-            }}
-          />
+          <label htmlFor="phrase">Add A New Phrase:</label>
+          <div className="mt-1 flex flex-row gap-4">
+            <Input
+              id="phrase"
+              name="phrase"
+              placeholder="Type..."
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+              }}
+            />
+            <Button type="submit" className="bg-primary">
+              Add
+            </Button>
+          </div>
         </fieldset>
-        <Button type="submit">Add</Button>
       </form>
     </section>
   );

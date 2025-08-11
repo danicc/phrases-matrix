@@ -1,10 +1,14 @@
 import { PhraseView } from "./phrase";
+import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   return (
-    <main className="h-[100dvh] flex flex-col items-center">
-      <PhraseView />
-    </main>
+    <>
+      <Toaster />
+      <main className="h-[100dvh] flex flex-col items-center">
+        <PhraseView />
+      </main>
+    </>
   );
 }
 

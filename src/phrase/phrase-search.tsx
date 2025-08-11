@@ -16,6 +16,7 @@ function PhraseSearch({ searchTerm, onChange }: Props) {
         onChange={(e) => {
           onChange(e.target.value);
         }}
+        className="mt-1"
       />
     </section>
   );

@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import type { Phrase } from "@/phrase/types";
 import { useLocalStorageState } from "@/hooks/use-local-storage";
+import { toast } from "sonner";
 
 export function usePhrases() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,6 +20,7 @@ export function usePhrases() {
     function addPhrase(newPhraseMessage: string) {
       const uuid = crypto.randomUUID();
       setPhrases((prev) => [...prev, { id: uuid, message: newPhraseMessage }]);
+      toast.success("Added New Phrase", { className: "bg-green-500" });
     },
     [setPhrases]
   );
@@ -26,6 +28,7 @@ export function usePhrases() {
   const removePhrase = useCallback(
     (id: string) => {
       setPhrases((prev) => prev.filter((phrase) => phrase.id !== id));
+      toast.success("Deleted Phrase");
     },
     [setPhrases]
   );

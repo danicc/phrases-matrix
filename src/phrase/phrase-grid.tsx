@@ -14,7 +14,7 @@ function PhraseGrid({ phrases, onDeletePhrase }: Props) {
         <Card key={phrase.id}>
           <CardContent>
             <p>{phrase.message}</p>
-            <CardAction>
+            <CardAction className="mt-8">
               <Button
                 variant="outline"
                 size="icon"
