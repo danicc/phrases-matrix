@@ -1,11 +1,11 @@
-import { PhraseView } from "./phrase";
+import { PhraseView } from "@/phrase";
 import { Toaster } from "@/components/ui/sonner";
 
 function App() {
   return (
     <>
       <Toaster />
-      <main className="h-[100dvh] flex flex-col items-center">
+      <main className="h-[100dvh] w-full md:max-w-2/3 flex flex-col items-center p-2 mx-auto">
         <PhraseView />
       </main>
     </>

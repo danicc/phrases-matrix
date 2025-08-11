@@ -9,7 +9,7 @@ interface Props {
 
 function PhraseGrid({ phrases, onDeletePhrase }: Props) {
   return (
-    <section className="grid grid-cols-[repeat(2,minmax(12rem,1fr))] md:grid-cols-[repeat(3,minmax(12rem,1fr))] lg:grid-cols-[repeat(4,minmax(12rem,1fr))] gap-4">
+    <section className="grid grid-cols-[repeat(2,minmax(9rem,1fr))] md:grid-cols-[repeat(3,minmax(12rem,1fr))] lg:grid-cols-[repeat(4,minmax(12rem,1fr))] gap-4">
       {phrases.map((phrase) => (
         <Card key={phrase.id}>
           <CardContent>
