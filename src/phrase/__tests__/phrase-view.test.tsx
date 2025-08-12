@@ -2,13 +2,14 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { PhraseView } from "@/phrase/PhraseView";
+import { PHRASES_STORAGE_KEY } from "@/phrase/constants";
 
 function seedPhrases(messages: string[]) {
   const seeded = messages.map((message, index) => ({
     id: `phrase-${index + 1}`,
     message,
   }));
-  localStorage.setItem("phrases:v1", JSON.stringify(seeded));
+  localStorage.setItem(PHRASES_STORAGE_KEY, JSON.stringify(seeded));
 }
 
 describe("PhraseView", () => {

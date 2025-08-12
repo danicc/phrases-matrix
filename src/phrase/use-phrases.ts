@@ -1,11 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
 import type { Phrase } from "@/phrase/types";
 import { useLocalStorageState } from "@/hooks/use-local-storage";
+import { PHRASES_STORAGE_KEY } from "@/phrase/constants";
 import { toast } from "sonner";
 
 export function usePhrases() {
   const [phrases, setPhrases] = useLocalStorageState<Phrase[]>(
-    "phrases:v1",
+    PHRASES_STORAGE_KEY,
     []
   );
 
