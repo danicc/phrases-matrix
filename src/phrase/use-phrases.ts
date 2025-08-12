@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useDeferredValue, useCallback, useMemo, useState } from "react";
 import type { Phrase } from "@/phrase/types";
 import { useLocalStorageState } from "@/hooks/use-local-storage";
 import { PHRASES_STORAGE_KEY } from "@/phrase/constants";
@@ -11,28 +11,43 @@ export function usePhrases() {
   );
 
   const [searchTerm, setSearchTerm] = useState("");
+  const deferredSearch = useDeferredValue(searchTerm);
 
   const phrasesToDisplay = useMemo(() => {
-    const searchQuery = searchTerm.trim().toLowerCase();
+    const searchQuery = deferredSearch.trim().toLowerCase();
     if (!searchQuery) return phrases;
     return phrases.filter((p) => p.message.toLowerCase().includes(searchQuery));
-  }, [phrases, searchTerm]);
+  }, [phrases, deferredSearch]);
 
   const addPhrase = useCallback(
     function addPhrase(newPhraseMessage: string) {
-      const uuid = crypto.randomUUID();
-      setPhrases((prev) => [...prev, { id: uuid, message: newPhraseMessage }]);
-      toast.success("Added New Phrase", { className: "bg-green-500" });
+      const message = newPhraseMessage.trim();
+      if (
+        phrases.some((p) => p.message.toLowerCase() === message.toLowerCase())
+      ) {
+        toast.error("Duplicate phrase");
+        return;
+      }
+
+      setPhrases((prev) => {
+        return [...prev, { id: crypto.randomUUID(), message }];
+      });
+      toast.success("Added New Phrase");
     },
-    [setPhrases]
+    [phrases, setPhrases]
   );
 
   const removePhrase = useCallback(
     (id: string) => {
-      setPhrases((prev) => prev.filter((phrase) => phrase.id !== id));
-      toast.success("Deleted Phrase");
+      setPhrases((prev) => prev.filter((p) => p.id !== id));
+      toast.success("Deleted Phrase", {
+        action: {
+          label: "Undo",
+          onClick: () => setPhrases(phrases),
+        },
+      });
     },
-    [setPhrases]
+    [phrases, setPhrases]
   );
 
   return useMemo(
