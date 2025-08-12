@@ -18,10 +18,10 @@ export function PhraseForm({ onSubmit }: Props) {
     <section>
       <form onSubmit={handleAddNewPhrase} className="flex flex-row gap-2">
         <fieldset>
-          <label htmlFor="phrase">Add A New Phrase:</label>
+          <label htmlFor="add-phrase">Add A New Phrase:</label>
           <div className="mt-1 flex flex-row gap-4">
             <Input
-              id="phrase"
+              id="add-phrase"
               name="phrase"
               placeholder="Type..."
               value={message}

@@ -19,6 +19,7 @@ function PhraseGrid({ phrases, onDeletePhrase }: Props) {
                 variant="outline"
                 size="icon"
                 className="bg-foreground"
+                aria-label={`Delete phrase: ${phrase.message}`}
                 onClick={() => onDeletePhrase(phrase.id)}
               >
                 🗑️

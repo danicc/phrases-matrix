@@ -4,11 +4,12 @@ import { useLocalStorageState } from "@/hooks/use-local-storage";
 import { toast } from "sonner";
 
 export function usePhrases() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [phrases, setPhrases] = useLocalStorageState<Phrase[]>(
     "phrases:v1",
     []
   );
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const phrasesToDisplay = useMemo(() => {
     const searchQuery = searchTerm.trim().toLowerCase();
