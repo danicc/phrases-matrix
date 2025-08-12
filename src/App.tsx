@@ -7,7 +7,7 @@ function App() {
     <>
       <Analytics />
       <Toaster />
-      <main className="h-[100dvh] w-full md:max-w-2/3 flex flex-col items-center p-2 mx-auto">
+      <main className="h-[100dvh] w-full md:max-w-2/3 p-2 mx-auto">
         <PhraseView />
       </main>
     </>

@@ -9,14 +9,12 @@ export function PhraseView() {
     usePhrases();
 
   return (
-    <>
-      <h1 className="text-6xl mb-4">Phrases</h1>
-      <div className="flex flex-col gap-5">
-        <PhraseForm onSubmit={addPhrase} />
-        <PhraseSearch searchTerm={searchTerm} onChange={setSearchTerm} />
-        {searchTerm && phrases.length === 0 && <EmptySearch />}
-        <PhraseGrid phrases={phrases} onDeletePhrase={removePhrase} />
-      </div>
-    </>
+    <div className="w-full flex flex-col gap-5">
+      <h1 className="text-6xl mb-4 self-center">Phrases</h1>
+      <PhraseForm onSubmit={addPhrase} />
+      <PhraseSearch searchTerm={searchTerm} onChange={setSearchTerm} />
+      {searchTerm && phrases.length === 0 && <EmptySearch />}
+      <PhraseGrid phrases={phrases} onDeletePhrase={removePhrase} />
+    </div>
   );
 }

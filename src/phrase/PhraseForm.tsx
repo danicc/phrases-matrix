@@ -30,9 +30,7 @@ export function PhraseForm({ onSubmit }: Props) {
               }}
               required
             />
-            <Button type="submit" className="bg-primary">
-              Add
-            </Button>
+            <Button type="submit">Add</Button>
           </div>
         </fieldset>
       </form>
